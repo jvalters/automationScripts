@@ -22,7 +22,13 @@ Wrote the script from srach in Just fuw minutes.
 some IT tutorials https://www.valters.eu
 
 
-<b><font size="10">zabbix-agent.sh</font></b>
+
+
+
+
+
+
+<b><font size="35">zabbix-agent.sh</font></b>
 
 This script is a simple DevOps script, that will add Zabbix repository and also will install Zabbix agent and automatically puts needed changes into Zabbix agent configuration file.
 
