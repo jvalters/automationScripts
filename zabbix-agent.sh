@@ -1,14 +1,35 @@
 
+########################################################################
+###                                                                  ###
+###          Writen by Janis Valters                                 ###
+###  Website: https://www.valters.eu                                 ###
+###  GITHUB:  https://github.com/jvalters/                           ###
+###                                                                  ###
+###                                                                  ###
+###         Tested on Centos 7                                       ###
+########################################################################
+
 #!/bin/bash
-#detec host
+
+#add repository
 rpm -Uvh https://repo.zabbix.com/zabbix/4.0/rhel/7/x86_64/zabbix-agent-4.0.3-1.el7.x86_64.rpm
-/bin/sleep 15
+
+#Give 7 Second time to add repository
+/bin/sleep 7
+
+#Install zabbix agent
 yum -y install zabbix-agent
-/bin/sleep 25
+
+#Give 10 seconds to install zabbix agent
+/bin/sleep 10
+
+#Change myzabbix.server.com <-- To your zabbix server link.
 zserver="myzabbix.server.com"
+
+#Get server hostname
 servername="$HOSTNAME"
 
-#Motd Start
+#Create Zabbix agent configuration with zabbix server and your agent server hostname
 echo -e " 
 # This is a configuration file for Zabbix agent daemon (Unix)
 # To get more information about Zabbix, visit http://www.zabbix.com
@@ -410,7 +431,16 @@ Include=/etc/zabbix/zabbix_agentd.d/*.conf
 
 " >/etc/zabbix/zabbix_agentd.conf
 
-/bin/sleep 45
+#Give the server 10 seconds to create this configuration
+/bin/sleep 10
+
+#Enable zabbix agent on auto start.
 systemctl enable zabbix-agent
+
+#Give server 5 seconds to do the above comand
 /bin/sleep 5
+
+#Start zabbix agent.
 systemctl start zabbix-agent
+
+#And your done!
