@@ -11,19 +11,19 @@
 
 #!/bin/bash
 
-#add repository
+#add Zabbix repository
 rpm -Uvh https://repo.zabbix.com/zabbix/4.0/rhel/7/x86_64/zabbix-agent-4.0.3-1.el7.x86_64.rpm
 
-#Give 7 Second time to add repository
+#Give 7 Second time to add the repository
 /bin/sleep 7
 
 #Install zabbix agent
 yum -y install zabbix-agent
 
-#Give 10 seconds to install zabbix agent
+#Give 10 seconds to install Zabbix agent
 /bin/sleep 10
 
-#Change myzabbix.server.com <-- To your zabbix server link.
+#Change myzabbix.server.com <-- To your Zabbix server link.
 zserver="myzabbix.server.com"
 
 #Get server hostname
