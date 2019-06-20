@@ -20,3 +20,17 @@ Simple as that :) Have fun.
 
 Wrote the script from srach in Just fuw minutes.
 some IT tutorials https://www.valters.eu
+
+
+<b>zabbix-agent.sh</b>
+
+This script is a simple DevOps script, that will add Zabbix repository and also will install Zabbix agent and automatically puts needed changes into Zabbix agent configuration file.
+
+To run this script put it on your server
+chmod 775 script /location/to/the/script/zabbix-agent.sh
+
+cd /location/to/the/script/
+
+then run ./zabbix-agent.sh
+
+And then add it manually to your Zabbix server using web-UI
