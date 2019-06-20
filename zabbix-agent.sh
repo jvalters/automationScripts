@@ -26,11 +26,15 @@ yum -y install zabbix-agent
 #Change myzabbix.server.com <-- To your Zabbix server link.
 zserver="myzabbix.server.com"
 
+email='YOUR-MEILA@YOURDOMAIN.COM'
+
+prname="$HOSTNAME"
+
 #Get server hostname
 servername="$HOSTNAME"
 
 #Create Zabbix agent configuration with zabbix server and your agent server hostname
-echo -e " 
+echo -e "
 # This is a configuration file for Zabbix agent daemon (Unix)
 # To get more information about Zabbix, visit http://www.zabbix.com
 
@@ -443,4 +447,25 @@ systemctl enable zabbix-agent
 #Start zabbix agent.
 systemctl start zabbix-agent
 
+#Give server 5 seconds to rest
+/bin/sleep 5
+
+#Install mailx to send e-mails from the server
+yum -y install mailx
+
+#Allo mailx to install
+/bin/sleep 7
+
+
+#E-mail Subject
+subject='Subject: '$servername' - Zabbix server installation finished all works!'
+
+
+#Check if Zabbix is running.
+if [ $? -ne 1 ]; then
+
+#When installation process is done and Zabbix server is running send notification to admin.
+echo "$subject" | /usr/sbin/sendmail $email
+
 #And your done!
+fi
