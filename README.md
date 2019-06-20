@@ -3,11 +3,11 @@ A simple DevOps script, that checks MySQL status.
 If the server is down it will automatically start it.
 
 
-MySQL.sh is a simple script.
+mysql-checker.sh is a simple script.
 Set a CronJob to run this script every 5 minutes
-Cron example:  */5 * * * * /location/to/the/script/MySQL.sh
+Cron example:  */5 * * * * /location/to/the/script/mysql-checker.sh
 
-Chmod 775 /location/to/the/script/MySQL.sh
+Chmod 775 /location/to/the/script/mysql-checker.sh
 
 And you are ready.
 
