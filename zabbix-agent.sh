@@ -26,9 +26,8 @@ yum -y install zabbix-agent
 #Change myzabbix.server.com <-- To your Zabbix server link.
 zserver="myzabbix.server.com"
 
+#Write your e-mail
 email='YOUR-MEILA@YOURDOMAIN.COM'
-
-prname="$HOSTNAME"
 
 #Get server hostname
 servername="$HOSTNAME"
